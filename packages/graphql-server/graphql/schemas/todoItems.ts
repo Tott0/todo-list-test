@@ -4,11 +4,15 @@ import { GraphQLFieldResolver } from 'graphql';
 
 const prisma = new PrismaClient();
 
+export interface TodoItemData {
+  id: number;
+  title: string;
+}
+
 export const typeDefs = gql`
   type TodoItem {
     id: ID
     title: String
-    description: String
   }
 
   type Query {
@@ -16,7 +20,7 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-    addTodoItem(title: String!, description: String): TodoItem!
+    addTodoItem(title: String!): TodoItem!
   }
 `;
 
@@ -25,7 +29,6 @@ const todoItemResolver: {
 } = {
   id: (parent) => parent.id,
   title: (parent) => parent.title,
-  description: (parent) => parent.description,
 };
 
 const queryResolvers: {
@@ -38,7 +41,6 @@ const queryResolvers: {
 
 type CreateTodoItemArgs = {
   title: string;
-  description?: string;
 };
 
 const mutationResolvers: {
