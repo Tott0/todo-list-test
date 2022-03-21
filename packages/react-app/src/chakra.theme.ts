@@ -10,4 +10,21 @@ const colors = {
   },
 };
 
-export default extendTheme({ colors });
+const MainCard = {
+  baseStyle: {
+    borderRadius: 'lg',
+    borderWidth: '1px',
+    bg: 'white',
+    maxW: 'lg',
+    minW: 'sm',
+    py: 6,
+    px: 4,
+  },
+};
+
+export default extendTheme({
+  colors,
+  components: {
+    MainCard,
+  },
+});

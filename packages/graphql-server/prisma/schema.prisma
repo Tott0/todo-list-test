@@ -15,4 +15,5 @@ model TodoItem {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   title           String @db.VarChar(255)
+  isComplete      Boolean @default(false)
 }
