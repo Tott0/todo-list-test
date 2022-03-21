@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
+    "setup": "lerna run db:migrate",
     "start": "lerna run start --stream"
   },
   "devDependencies": {
